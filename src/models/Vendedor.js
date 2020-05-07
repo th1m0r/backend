@@ -1,4 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
+const Empresa = require('../models/Empresa');
 
 class Vendedor extends Model {
     static init(sequelize) {
@@ -7,6 +8,14 @@ class Vendedor extends Model {
                 type: DataTypes.INTEGER,
                 primaryKey: true,
                 autoIncrement: true,
+                allowNull: false
+            },
+            empresaId: {
+                type: DataTypes.INTEGER,
+                references: {
+                    model: Empresa,
+                    key: 'id'
+                },
                 allowNull: false
             },
             nome: { type: DataTypes.STRING(60), allowNull: false },
@@ -19,11 +28,11 @@ class Vendedor extends Model {
                 sequelize,
                 modelName: "Vendedor",
                 tableName: "vendedor",
-                timestamps: false,
+                timestamps: true,
             })
     }
     static associate(models) {
-        this.belongsTo(models.Empresa)
+        this.belongsTo(models.empresa)
         this.belongsToMany(models.Produto, { as: 'produtos', through: 'VendedorProduto' });
     }
 }

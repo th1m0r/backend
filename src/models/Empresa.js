@@ -163,8 +163,8 @@ class Empresa extends Model {
             },
         }, {
             sequelize,
-            modelName: 'Empresa',
-            tableName: 'empresa',
+            modelName: 'empresa',
+            tableName: 'empresa'
         })
     }
     static associace(models) {
