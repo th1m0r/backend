@@ -9,11 +9,7 @@ module.exports = {
         autoIncrement: true,
         allowNull: false,
       },
-      ean: {
-        type: Sequelize.BIGINT,
-        allowNull: false,
-        unique: 'ean_unique',
-      },
+      ean: { type: Sequelize.BIGINT, allowNull: false, unique: 'ean_unique', },
       descricao: { type: Sequelize.STRING(100), allowNull: false },
       descricao_reduzida: { type: Sequelize.STRING(24), allowNull: false },
       unidade: { type: Sequelize.STRING(2), allowNull: false },
@@ -26,9 +22,7 @@ module.exports = {
       secao_id: {
         type: Sequelize.INTEGER,
         references: {
-          model: {
-            tableName: 'secao',
-          },
+          model: { tableName: 'secao', },
           key: 'id'
         },
         allowNull: false
@@ -36,9 +30,7 @@ module.exports = {
       categoria_id: {
         type: Sequelize.INTEGER,
         references: {
-          model: {
-            tableName: 'categoria',
-          },
+          model: { tableName: 'categoria', },
           key: 'id'
         },
         allowNull: false
@@ -46,9 +38,7 @@ module.exports = {
       familia_id: {
         type: Sequelize.INTEGER,
         references: {
-          model: {
-            tableName: 'familia',
-          },
+          model: { tableName: 'familia', },
           key: 'id'
         },
         allowNull: false

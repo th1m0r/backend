@@ -161,19 +161,14 @@ class Empresa extends Model {
                 type: DataTypes.STRING(60),
                 allowNull: true,
             },
-            createdAt: {
-                type: DataTypes.DATE,
-                allowNull: false,
-            },
-            updatedAt: {
-                type: DataTypes.DATE,
-                allowNull: false,
-            }
         }, {
             sequelize,
             modelName: 'Empresa',
             tableName: 'empresa',
         })
+    }
+    static associace(models) {
+        this.hasMany(models.Vendedor, { as: 'vendedores' });
     }
 }
 module.exports = Empresa;
