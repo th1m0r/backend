@@ -25,7 +25,7 @@ class Vendedor extends Model {
     }
     static associate(models) {
         this.belongsTo(models.empresa)
-        this.belongsToMany(models.produto, { as: 'produtos', through: 'VendedorProduto' });
+        this.belongsToMany(models.produto, { as: 'produtos', through: 'vendedor_produto' });
     }
 }
 module.exports = Vendedor;

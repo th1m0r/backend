@@ -29,6 +29,9 @@ routes.post('/vendedores', VendedorController.salvar);
 routes.get('/vendedores/:id', VendedorController.pesquisar);
 routes.delete('/vendedores/:id', VendedorController.excluir);
 routes.put('/vendedores/:id', VendedorController.alterar);
+routes.get('/vendedores/:id/produtos', VendedorController.listarProdutos)
+routes.post('/vendedores/:id/produtos', VendedorController.inserirProdutos)
+routes.delete('/vendedores/:id/produtos', VendedorController.removerProdutos)
 
 //CRUD vendedor
 routes.get('/clientes', ClienteController.listar);

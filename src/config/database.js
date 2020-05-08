@@ -5,7 +5,7 @@ module.exports = {
     password: 'mestre',
     database: 'db_aratu',
     define: {
-        timestamps: true,
+        timestamps: false,
         underscored: true,
         charset: 'utf8',
         dialectOptions: {

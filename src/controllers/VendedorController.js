@@ -40,5 +40,30 @@ class VendedorController {
                 : res.status(404).json({ message: "Vendedor não cadastrado" })))
             .catch(err => res.status(400).json(err))
     }
+
+    listarProdutos = ({ params: { id } }, res) => {
+        this.vendedorService.listarProdutos(id)
+            .then(vendedor => (vendedor ? res.json(vendedor)
+                : res.status(404).json({ message: "Vendedor não cadastrado" })))
+            .catch(err => res.status(400).json(err));
+    }
+
+    inserirProdutos = (req, res) => {
+        const { id } = req.params;
+        const { produtos } = req.body;
+        this.vendedorService.inserirProdutos(id, produtos)
+            .then(retorno => (retorno ? res.json({ message: "Produtos associados com sucesso." })
+                : res.status(404).json({ message: "Vendedor não cadastrado" })))
+            .catch(err => res.status(400).json(err));
+    }
+
+    removerProdutos = (req, res) => {
+        const { id } = req.params;
+        const { produtos } = req.body;
+        this.vendedorService.removerProdutos(id, produtos)
+            .then(retorno => (retorno ? res.json({ message: "Produtos removidos com sucesso." })
+                : res.status(404).json({ message: "Vendedor não cadastrado" })))
+            .catch(err => res.status(400).json(err));
+    }
 }
 module.exports = new VendedorController(vendedorService);
