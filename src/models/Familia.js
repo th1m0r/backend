@@ -16,7 +16,7 @@ class Familia extends Model {
         },
             {
                 sequelize,
-                modelName: 'Familia',
+                modelName: 'familia',
                 tableName: 'familia',
                 timestamps: false,
             }

@@ -10,14 +10,6 @@ class Vendedor extends Model {
                 autoIncrement: true,
                 allowNull: false
             },
-            empresaId: {
-                type: DataTypes.INTEGER,
-                references: {
-                    model: Empresa,
-                    key: 'id'
-                },
-                allowNull: false
-            },
             nome: { type: DataTypes.STRING(60), allowNull: false },
             cpf: { type: DataTypes.STRING(11), allowNull: false },
             email: { type: DataTypes.STRING(100), allowNull: false },
@@ -33,7 +25,7 @@ class Vendedor extends Model {
     }
     static associate(models) {
         this.belongsTo(models.empresa)
-        this.belongsToMany(models.Produto, { as: 'produtos', through: 'VendedorProduto' });
+        this.belongsToMany(models.produto, { as: 'produtos', through: 'VendedorProduto' });
     }
 }
 module.exports = Vendedor;

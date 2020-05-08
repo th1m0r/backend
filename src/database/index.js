@@ -6,6 +6,7 @@ const Categoria = require('../models/Categoria');
 const Familia = require('../models/Familia');
 const Vendedor = require('../models/Vendedor');
 const Produto = require('../models/Produto');
+const Cliente = require('../models/Cliente');
 
 const sequelize = new Sequelize(dbConfig);
 
@@ -17,6 +18,7 @@ Categoria.init(sequelize);
 Familia.init(sequelize);
 Produto.init(sequelize);
 Vendedor.init(sequelize);
+Cliente.init(sequelize);
 
 Empresa.associace(sequelize.models);
 Produto.associate(sequelize.models);

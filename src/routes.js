@@ -5,6 +5,7 @@ const CategoriaController = require('./controllers/CategoriaController');
 const FamiliaController = require('./controllers/FamiliaController');
 const ProdutoController = require('./controllers/ProdutoController');
 const VendedorController = require('./controllers/VendedorController');
+const ClienteController = require('./controllers/ClienteController');
 
 const routes = express.Router();
 
@@ -28,6 +29,13 @@ routes.post('/vendedores', VendedorController.salvar);
 routes.get('/vendedores/:id', VendedorController.pesquisar);
 routes.delete('/vendedores/:id', VendedorController.excluir);
 routes.put('/vendedores/:id', VendedorController.alterar);
+
+//CRUD vendedor
+routes.get('/clientes', ClienteController.listar);
+routes.post('/clientes', ClienteController.salvar);
+routes.get('/clientes/:id', ClienteController.pesquisar);
+routes.delete('/clientes/:id', ClienteController.excluir);
+routes.put('/clientes/:id', ClienteController.alterar);
 
 
 routes.get('/secoes', SecaoController.listar);

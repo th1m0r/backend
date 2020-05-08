@@ -16,7 +16,7 @@ class Secao extends Model {
         },
             {
                 sequelize,
-                modelName: 'Secao',
+                modelName: 'secao',
                 tableName: 'secao',
                 timestamps: false,
             }

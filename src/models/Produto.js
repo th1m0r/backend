@@ -19,43 +19,19 @@ class Produto extends Model {
             ativo: { type: DataTypes.BOOLEAN, allowNull: false, defaultValue: true },
             bloqueiaVenda: { type: DataTypes.BOOLEAN, allowNull: false, defaultValue: false },
             controlaEstoque: { type: DataTypes.BOOLEAN, allowNull: false, defaultValue: true },
-            foto: { type: DataTypes.STRING(100), allowNull: true },
-            SecaoId: {
-                type: DataTypes.INTEGER,
-                references: {
-                    model: Secao,
-                    key: 'id'
-                },
-                allowNull: false,
-            },
-            CategoriaId: {
-                type: DataTypes.INTEGER,
-                references: {
-                    model: Categoria,
-                    key: 'id'
-                },
-                allowNull: false
-            },
-            FamiliaId: {
-                type: DataTypes.INTEGER,
-                references: {
-                    model: Familia,
-                    key: 'id'
-                },
-                allowNull: false
-            },
+            foto: { type: DataTypes.STRING(100), allowNull: true }
         },
             {
                 sequelize,
-                modelName: "Produto",
+                modelName: "produto",
                 tableName: "produto",
                 timestamps: true
             })
     }
     static associate(models) {
-        this.belongsTo(models.Secao, { as: 'secao' });
-        this.belongsTo(models.Categoria, { as: 'categoria' });
-        this.belongsTo(models.Familia, { as: 'familia' });
+        this.belongsTo(models.secao);
+        this.belongsTo(models.categoria, {foreignKey: 'categoriaId'});
+        this.belongsTo(models.familia, {foreignKey: 'familiaId'});
         this.belongsToMany(models.Vendedor, { as: 'vendedores', through: 'VendedorProduto' });
     }
 }
