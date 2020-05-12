@@ -7,6 +7,8 @@ const Familia = require('../models/Familia');
 const Vendedor = require('../models/Vendedor');
 const Produto = require('../models/Produto');
 const Cliente = require('../models/Cliente');
+const Pedido = require('../models/Pedido');
+const PedidoItens = require('../models/PedidoItens');
 
 const sequelize = new Sequelize(dbConfig);
 
@@ -19,9 +21,13 @@ Familia.init(sequelize);
 Produto.init(sequelize);
 Vendedor.init(sequelize);
 Cliente.init(sequelize);
+Pedido.init(sequelize);
+PedidoItens.init(sequelize);
 
 Empresa.associace(sequelize.models);
 Produto.associate(sequelize.models);
 Vendedor.associate(sequelize.models);
+Pedido.associate(sequelize.models);
+PedidoItens.associate(sequelize.models);
 
 module.exports = sequelize;

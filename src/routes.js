@@ -6,6 +6,7 @@ const FamiliaController = require('./controllers/FamiliaController');
 const ProdutoController = require('./controllers/ProdutoController');
 const VendedorController = require('./controllers/VendedorController');
 const ClienteController = require('./controllers/ClienteController');
+const PedidoController = require('./controllers/PedidoController');
 
 const routes = express.Router();
 
@@ -33,7 +34,7 @@ routes.get('/vendedores/:id/produtos', VendedorController.listarProdutos)
 routes.post('/vendedores/:id/produtos', VendedorController.inserirProdutos)
 routes.delete('/vendedores/:id/produtos', VendedorController.removerProdutos)
 
-//CRUD vendedor
+//CRUD cliente
 routes.get('/clientes', ClienteController.listar);
 routes.post('/clientes', ClienteController.salvar);
 routes.get('/clientes/:id', ClienteController.pesquisar);
@@ -44,5 +45,8 @@ routes.put('/clientes/:id', ClienteController.alterar);
 routes.get('/secoes', SecaoController.listar);
 routes.get('/categorias', CategoriaController.listar);
 routes.get('/familias', FamiliaController.listar);
+
+//Pedido de venda
+routes.get('/pedidos', PedidoController.listar);
 
 module.exports = routes;

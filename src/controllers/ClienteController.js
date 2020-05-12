@@ -23,7 +23,7 @@ class ClienteController {
         this.clienteService.salvar(req.body)
             .then(retorno => (retorno ? res.status(201).json({ mensagem: "Cliente salvo com sucesso!" })
                 : res.status(400).json({ menssagem: "Erro ao salvar cliente." })))
-            .catch(err => res.status(400).json(err))
+            .catch(err => res.status(400).json(err.errors.map(error => ({ message: error.message }))));
     }
 
     excluir = ({ params: { id } }, res) => {
