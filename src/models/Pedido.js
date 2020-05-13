@@ -12,9 +12,9 @@ class Pedido extends Model {
             observacao: { type: DataTypes.STRING(100), allowNull: false },
             situacao: { type: DataTypes.STRING(1), allowNull: false, defaultValue: "A" },
             faturado: { type: DataTypes.BOOLEAN, allowNull: false, defaultValue: false },
-            data_entrega: { type: DataTypes.DATE, allowNull: false },
-            created_at: { type: DataTypes.DATE, allowNull: false },
-            updated_at: { type: DataTypes.DATE, allowNull: false }
+            dataEntrega: { type: DataTypes.DATE, allowNull: false },
+            createdAt: { type: DataTypes.DATE, allowNull: false },
+            updatedAt: { type: DataTypes.DATE, allowNull: false }
         },
             {
                 sequelize,
@@ -27,7 +27,7 @@ class Pedido extends Model {
     static associate(models) {
         this.belongsTo(models.empresa, { foreignKey: 'empresaId' });
         this.belongsTo(models.cliente, { foreignKey: 'clienteId' });
-        this.belongsTo(models.Vendedor, { foreignKey: 'vendedorId' });
+        this.belongsTo(models.vendedor, { foreignKey: 'vendedorId' });
         this.hasMany(models.pedidoItens, { as: 'itens', foreignKey: 'pedidoId' });
     }
 }

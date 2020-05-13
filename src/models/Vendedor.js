@@ -17,7 +17,7 @@ class Vendedor extends Model {
         },
             {
                 sequelize,
-                modelName: "Vendedor",
+                modelName: "vendedor",
                 tableName: "vendedor",
                 timestamps: true,
             })

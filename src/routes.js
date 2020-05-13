@@ -42,11 +42,18 @@ routes.delete('/clientes/:id', ClienteController.excluir);
 routes.put('/clientes/:id', ClienteController.alterar);
 
 
+//Pedido de venda
+routes.get('/pedidos', PedidoController.listar);
+routes.post('/pedidos', PedidoController.salvar);
+routes.get('/pedidos/:id', PedidoController.pesquisar);
+routes.delete('/pedidos/:id', PedidoController.excluir);
+routes.put('/pedidos/:id', PedidoController.alterar);
+
+
+
 routes.get('/secoes', SecaoController.listar);
 routes.get('/categorias', CategoriaController.listar);
 routes.get('/familias', FamiliaController.listar);
 
-//Pedido de venda
-routes.get('/pedidos', PedidoController.listar);
 
 module.exports = routes;

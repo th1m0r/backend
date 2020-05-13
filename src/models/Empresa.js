@@ -168,7 +168,7 @@ class Empresa extends Model {
         })
     }
     static associace(models) {
-        this.hasMany(models.Vendedor, { as: 'vendedores' });
+        this.hasMany(models.vendedor, { as: 'vendedores' });
     }
 }
 module.exports = Empresa;

@@ -11,8 +11,8 @@ class PedidoItens extends Model {
             },
             quantidade: { type: DataTypes.DECIMAL(10, 6), allowNull: false },
             embalagem: { type: DataTypes.DECIMAL(10, 6), allowNull: false },
-            preco_venda: { type: DataTypes.DECIMAL(10, 6), allowNull: false },
-            valor_desconto: { type: DataTypes.DECIMAL(10, 6), allowNull: false },
+            precoVenda: { type: DataTypes.DECIMAL(10, 6), allowNull: false },
+            valorDesconto: { type: DataTypes.DECIMAL(10, 6), allowNull: false },
         },
             {
                 sequelize,

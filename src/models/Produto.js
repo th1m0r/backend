@@ -32,7 +32,7 @@ class Produto extends Model {
         this.belongsTo(models.secao);
         this.belongsTo(models.categoria, {foreignKey: 'categoriaId'});
         this.belongsTo(models.familia, {foreignKey: 'familiaId'});
-        this.belongsToMany(models.Vendedor, { as: 'vendedores', through: 'vendedor_produto' });
+        this.belongsToMany(models.vendedor, { as: 'vendedores', through: 'vendedor_produto' });
     }
 }
 module.exports = Produto;
